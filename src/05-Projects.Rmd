@@ -1,0 +1,8 @@
+# Projects {#projects}
+
+> "Learning to code is useful no matter what your career ambitions are." —Arianna Huffington, Founder, The Huffington Post
+
+In this chapter, we'll discuss the preliminary details of the course.
+Then you'll run some R code and learn more about R and the R community.
+
+## This Textbook

@@ -1,0 +1,8 @@
+# R Markdown {#rmarkdown}
+
+> "The success of your presentation will be judged not by the knowledge you send but by what the listener receives." —Lilly Walters, Author
+
+In this chapter, we'll discuss the preliminary details of the course.
+Then you'll run some R code and learn more about R and the R community.
+
+## This Textbook

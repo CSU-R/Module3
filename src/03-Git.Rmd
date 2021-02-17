@@ -1,0 +1,3 @@
+# Git {#git}
+
+> "Learning to code is useful no matter what your career ambitions are." —Arianna Huffington, Founder, The Huffington Post
