@@ -1,6 +1,9 @@
 fig:unnamed-chunk-1
+fig:unnamed-chunk-3
 welcome
 how-to-navigate-this-book
 associated-csu-course
+special-boxes
 rmarkdown
-this-textbook
+background
+creation
