@@ -1,0 +1,6 @@
+fig:unnamed-chunk-1
+welcome
+how-to-navigate-this-book
+associated-csu-course
+rmarkdown
+this-textbook
