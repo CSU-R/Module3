@@ -4,7 +4,7 @@ This is the repository for the Module 3 R course offered at Colorado State Unive
 The output bookdown document is hosted via github pages here:
 
 
-[Bookdown Page](https://csu-r.github.io/Module1/)
+[Bookdown Page](https://csu-r.github.io/Module3/)
 
 
 The project is configured so that changes made on a local machine are then built into bookdown output locally, which is then pushed to the repo to update the live site.
