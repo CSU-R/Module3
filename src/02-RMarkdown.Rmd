@@ -18,12 +18,59 @@ To understand R Markdown, we first need to tackle [Markdown](https://www.markdow
 knitr::include_graphics('src/images/markdown_process.png')
 ```
 
-To simplify things, [R Markdown](https://rmarkdown.rstudio.com) is a variant of Markdown created by [RStudio](http://www.rstudio.com) to incorporate the functionality of Markdown and [R](http://www.r-project.org). With R Markdown, you can combine human readable text, code, and figures to create a document. While R Markdown is incredibly robust, allowing you to make reports, presentations, and even dashboards, we will start by focusing on the simplest case: creating a report.
+To simplify things, [R Markdown](https://rmarkdown.rstudio.com) is a variant of Markdown created by [RStudio](http://www.rstudio.com) to incorporate the functionality of Markdown and [R](http://www.r-project.org). With R Markdown, you can combine human readable text, code, and figures to create a document. While R Markdown is incredibly robust, allowing you to make reports, presentations, and even dashboards, we will start by focusing on the simplest case: creating a report. Compiling an R Markdown document requires your computer to process the Markdown code used to create human readable text, R code used to conduct analysis, and the R code output used to portray results. We will reserve the technical details for @xie2020r.
 
-```{block, type = "caution"}
 It is easy to confuse R, R Markdown, and RStudio. Try your best to separate these ideas from one another. R is a statistical programming language (proclaimed as a software environment for statistical computing and graphics), whereas R Markdown is a markup language (think of this as an environment for creating a document). RStudio, on the other hand, is the most popular [integrated development environment](https://en.wikipedia.org/wiki/Integrated_development_environment) (or IDE, for short) for R. RStudio, like good IDEs should, makes it easier for you to code in R by providing a user friendly landscape to write, run, and debug code.
+
+## Creating an R Markdown Document
+
+The easiest way to create an R Markdown document is to leverage RStudio by navigating to `File > New File > R Markdown`. You will be asked to populate a few basic options including the `Title`, the `Author`, and the `Default Output Format`. For now, feel free to name your R Markdown document `My R Markdown Demo` with your name as the author. Keep the default format as `HTML`. After clicking `OK`, you will be provided with a default in RStudio's text editing window. This is where you will create your document.
+
+```{block, type = 'bonus'}
+If you wish to create a PDF using R Markdown, you will need a version of `TeX` on your computer, a typesetting system. For users who have never interacted with `Tex`, we recommend installing the `tinytex` package by running `install.packages('tinytex')` and then running `tinytex::install_tinytex()`. After this, you should be able to create a PDF document with R Markdown. 
 ```
 
-## Creation
+### Basic Components
+
+There are three basic components to an R Markdown document: the YAML header, Markdown code, and `R` code chunks. We will explore each of these components one by one.
+
+#### YAML Header
+
+The YAML header exists at the very top of the R Markdown document. Following my own steps from above, the YAML header to my default R Markdown document looks like:
+
+```{r, echo = FALSE, fig.cap='example of a YAML header for the default R Markdown template'}
+knitr::include_graphics('src/images/YAML_header.png')
+```
+
+By default, the YAML header must contain a title, author, date, and output type. Once the YAML header has been specified, you can now knit your document as the specified output type by clicking the `Knit` icon.
+
+```{r, echo = FALSE, fig.cap='icon used to compile and format your R Markdown document'}
+knitr::include_graphics('src/images/knit_icon.png')
+```
+
+Alternatively, you can create the knitted document programmatically with `rmarkdown::render()`. Type `?rmarkdown::render` into your console for more details. Go ahead and knit your document, and take a look at the default document that is generated. The following two components are included in the default document.
+
+#### R Code Chunks
+
+Code chunks are segments of code throughout your document that will be evaluated sequentially upon knitting. Any output stemming from your code will be included in the final document. An example of an `R` 'chunk' is included below: 
+
+````
+```{r}`r ''`
+x <- c(1, 2, 3, 4)
+```
+````
+
+```{r, echo = FALSE}
+x <- c(1, 2, 3, 4)
+```
+
+All `R` code chunks are defined in this way; although, you may choose to specify chunk options in the `{}` of the chunk header. Chunk options allow you to customize how output of a given chunk is portrayed. Any R code can be included within the fences of three back ticks.
+
+While incredibly useful for large blocks of code, code chunks can be an overkill for a small line of code. At times, you may wish to evaluate some `R` code inline, perhaps to take the sum of `x`. You can do this by 
+
+
+#### Markdown Code
+
+As we mentioned, markdown is essentially a language used to format a document. When creating your reports in R Markdown, all of your headers, sub-headers, paragraphs, lists, etc. will be included as Markdown code. Thankfully, most of this looks like standard English with a few minor adjustments. Anything that is not your YAML header or contained within an R code chunk (more in a second) is inherently markdown code. We will revist this topic in future chapters when we discuss fine tuning your R Markdown document.
 
 

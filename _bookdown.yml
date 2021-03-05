@@ -7,6 +7,7 @@ language:
 rmd_files:
   - "index.Rmd"
   - "src/02-RMarkdown.Rmd"
+  - "src/99-Ref.Rmd"
 output_dir: "docs"
 # rmd_subdir: ["src"]  # misses index.Rmd if we use this
 # clean: ["src/book.bib"] # removes book.bib file when cleaned

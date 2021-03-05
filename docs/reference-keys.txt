@@ -1,9 +1,15 @@
 fig:unnamed-chunk-1
 fig:unnamed-chunk-10
+fig:unnamed-chunk-12
+fig:unnamed-chunk-13
 welcome
 how-to-navigate-this-book
 associated-csu-course
 special-boxes
 rmarkdown
 background
-creation
+creating-an-r-markdown-document
+basic-components
+yaml-header
+r-code-chunks
+markdown-code

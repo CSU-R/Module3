@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.1 Special Boxes | R Module 3</title>
+  <title>2.2 Creating an R Markdown Document | R Module 3</title>
   <meta name="description" content="This is the book for the R Intro Course at CSU." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.1 Special Boxes | R Module 3" />
+  <meta property="og:title" content="2.2 Creating an R Markdown Document | R Module 3" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.1 Special Boxes | R Module 3" />
+  <meta name="twitter:title" content="2.2 Creating an R Markdown Document | R Module 3" />
   
   <meta name="twitter:description" content="This is the book for the R Intro Course at CSU." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="rmarkdown.html"/>
+<link rel="prev" href="background.html"/>
+<link rel="next" href="references.html"/>
 <script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -107,48 +107,50 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="special-boxes" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Special Boxes</h2>
-<p>Because I have a poor memory, I am putting the boxes here as a reference while I write this.</p>
-<div class="reflect">
-<p>
-This box will prompt you to pause and reflect on your experience and/or learning. No feedback will be given, but this may be graded on completion.
-</p>
-</div>
-<div class="assessment">
-<p>
-This box will signify a quiz or assignment which you will turn in for grading, on which the instructor will provide feedback.
-</p>
-</div>
-<div class="progress">
-<p>
-This box is for checking your understanding, to make sure you are ready for what follows.
-</p>
-</div>
-<div class="video">
-<p>
-This box is for displaying/linking to videos in order to help illustrate or communicate concepts.
-</p>
-</div>
-<div class="caution">
-<p>
-This box will warn you of possible problems or pitfalls you may encounter!
-</p>
-</div>
+<div id="creating-an-r-markdown-document" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Creating an R Markdown Document</h2>
+<p>The easiest way to create an R Markdown document is to leverage RStudio by navigating to <code>File &gt; New File &gt; R Markdown</code>. You will be asked to populate a few basic options including the <code>Title</code>, the <code>Author</code>, and the <code>Default Output Format</code>. For now, feel free to name your R Markdown document <code>My R Markdown Demo</code> with your name as the author. Keep the default format as <code>HTML</code>. After clicking <code>OK</code>, you will be provided with a default in RStudio’s text editing window. This is where you will create your document.</p>
 <div class="bonus">
 <p>
-This box is to provide material going beyond the main course content, or material which will be revisited later in more depth.
+If you wish to create a PDF using R Markdown, you will need a version of <code>TeX</code> on your computer, a typesetting system. For users who have never interacted with <code>Tex</code>, we recommend installing the <code>tinytex</code> package by running <code>install.packages(‘tinytex’)</code> and then running <code>tinytex::install_tinytex()</code>. After this, you should be able to create a PDF document with R Markdown.
 </p>
 </div>
-<div class="feedback">
-<p>
-This box will prompt for your feedback on the organization of the course, so we can improve the material for everyone!
-</p>
-<p>
-Any of the boxes may include hyperlinks like this: <a href="https://www.r-graph-gallery.com/">I am a link</a> or code like this <code>This is code</code>.
+<div id="basic-components" class="section level3" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Basic Components</h3>
+<p>There are three basic components to an R Markdown document: the YAML header, Markdown code, and <code>R</code> code chunks. We will explore each of these components one by one.</p>
+<div id="yaml-header" class="section level4" number="2.2.1.1">
+<h4><span class="header-section-number">2.2.1.1</span> YAML Header</h4>
+<p>The YAML header exists at the very top of the R Markdown document. Following my own steps from above, the YAML header to my default R Markdown document looks like:</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-12"></span>
+<img src="src/images/yaml_header.PNG" alt="example of a YAML header for the default R Markdown template" width="1316" />
+<p class="caption">
+Figure 2.2: example of a YAML header for the default R Markdown template
 </p>
 </div>
+<p>By default, the YAML header must contain a title, author, date, and output type. Once the YAML header has been specified, you can now knit your document as the specified output type by clicking the <code>Knit</code> icon.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-13"></span>
+<img src="src/images/knit_icon.PNG" alt="icon used to compile and format your R Markdown document" width="102" />
+<p class="caption">
+Figure 2.3: icon used to compile and format your R Markdown document
+</p>
+</div>
+<p>Alternatively, you can create the knitted document programmatically with <code>rmarkdown::render()</code>. Type <code>?rmarkdown::render</code> into your console for more details. Go ahead and knit your document, and take a look at the default document that is generated. The following two components are included in the default document.</p>
+</div>
+<div id="r-code-chunks" class="section level4" number="2.2.1.2">
+<h4><span class="header-section-number">2.2.1.2</span> R Code Chunks</h4>
+<p>Code chunks are segments of code throughout your document that will be evaluated sequentially upon knitting. Any output stemming from your code will be included in the final document. An example of an <code>R</code> ‘chunk’ is included below:</p>
+<pre><code>```{r}
+x &lt;- c(1, 2, 3, 4)
+```</code></pre>
+<p>All <code>R</code> code chunks are defined in this way; although, you may choose to specify chunk options in the <code>{}</code> of the chunk header. Chunk options allow you to customize how output of a given chunk is portrayed. Any R code can be included within the fences of three back ticks.</p>
+<p>While incredibly useful for large blocks of code, code chunks can be an overkill for a small line of code. At times, you may wish to evaluate some <code>R</code> code inline, perhaps to take the sum of <code>x</code>. You can do this by</p>
+</div>
+<div id="markdown-code" class="section level4" number="2.2.1.3">
+<h4><span class="header-section-number">2.2.1.3</span> Markdown Code</h4>
+<p>As we mentioned, markdown is essentially a language used to format a document. When creating your reports in R Markdown, all of your headers, sub-headers, paragraphs, lists, etc. will be included as Markdown code. Thankfully, most of this looks like standard English with a few minor adjustments. Anything that is not your YAML header or contained within an R code chunk (more in a second) is inherently markdown code. We will revist this topic in future chapters when we discuss fine tuning your R Markdown document.</p>
 
+</div>
+</div>
 </div>
 <!-- </div> -->
             </section>
@@ -156,8 +158,8 @@ Any of the boxes may include hyperlinks like this: <a href="https://www.r-graph-
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="rmarkdown.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="background.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
